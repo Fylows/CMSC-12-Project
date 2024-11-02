@@ -8,45 +8,6 @@ intro = """
 ╚╩╝╩ ╩╚═╝  ╚╩╝╩ ╩╝╚╝ ╩ ╚═╝   ╩ ╚═╝  ╩  ╩ ╩╚═╝╚═╝   ╩ ╩ ╩╚═╝  ╚═╝╩  ╚═╝╩ ╩ ╩ 
 """
 
-danas= """
-Tanginang buhay
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⡛⠉⢯⣒⢤⡀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡖⢡⡐⡄⢀⡀⠈⢙⢮⡳⡄⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠣⠀⠂⠀⠈⠀⠀⠈⣈⠷⢉⠃⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠋⡐⡀⠀⠀⠀⠀⠀⣐⠼⢁⡞⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠣⢁⠐⠈⠆⣀⡈⠀⠲⢃⢠⠎⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡅⠂⠄⠂⠈⠐⢠⠓⢢⠱⣨⠃⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣴⠤⣤⢤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⠗⠀⠀⠀⠀⠂⠈⠀⠈⠄⣼⠁⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⡟⣬⠛⣭⢫⡍⣶⢳⣦⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠂⠀⠀⠀⠀⢢⠀⠀⠀⠀⣾⠃⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⡓⠤⠁⠎⠱⡈⡜⢥⢻⣹⢻⠷⡶⣶⡶⢶⣶⣦⣤⡀⣴⠟⠀⠀⠀⠀⠀⠀⠀⠐⠠⢩⠏⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⣼⡧⠙⢢⠁⡈⠀⠀⠈⠀⠁⠋⠄⢊⠑⠄⠘⡀⢎⡝⣿⡟⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⢀⣾⡿⢤⡁⢂⠡⠀⠀⠀⠀⠀⠀⡈⠁⢁⠊⠴⠓⠁⡜⣾⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⢀⣴⣿⢟⡽⣂⠖⡄⢂⢀⣴⠼⡞⡿⣛⡝⠛⠛⠾⣦⣤⣾⣽⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠂⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢠⣾⣏⠳⢎⣖⠹⣎⡜⣧⡿⠡⢎⠱⠑⠨⠈⠁⠀⠀⠈⠉⣻⡏⠐⡀⠀⠀⠀⠀⠀⠀⠀⠀⢐⣺⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢸⡗⡮⣙⠦⡸⡙⣼⡿⢋⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡟⠠⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢸⣇⡳⡵⣊⠕⣩⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⣲⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢸⣿⣟⣡⢦⣽⡟⠐⠁⠀⢀⠠⠀⠀⠀⠀⠀⠀⠀⠀⢠⡇⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⢸⠃⣀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢸⡿⠏⡉⣤⣿⠡⢈⠤⢁⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⣞⢡⠀⢀⠀⠀⠀⠀⠀⠀⠀⣴⢋⣿⠾⠃⠒⠘⠳⣶⣄⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⢠⣞⣵⠶⣿⣿⢁⡞⠤⠒⠠⠁⠂⠀⠀⠀⠀⠀⠀⠀⢰⡏⢆⠂⠄⠀⠀⠀⠀⠀⠀⠩⢄⣿⠋⠁⠀⠀⠁⠁⠡⡘⣿⠀⠀⠀⠀⠀⠀
-⠀⣰⣿⡟⢡⣾⢿⣌⠳⡘⠤⠉⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⡑⠌⡐⠈⠄⠀⠂⢁⠐⢌⢂⣿⢃⠉⠀⠀⠠⢈⠠⡑⢆⢽⠀⠀⠀⠀⠀⠀
-⢀⣿⡟⢡⣿⡟⢮⢌⢣⠐⠄⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⢏⠱⠈⠄⠡⠀⠌⡐⢀⠋⢤⣫⠇⠂⠀⠀⠀⠁⡀⠤⠱⣈⡟⠀⠀⠀⠀⠀⠀
-⢸⣿⣇⣳⡯⡝⢮⡘⢄⠃⠌⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⠏⡌⠢⠁⠌⠠⢁⠂⠔⡈⠜⣲⠏⠀⠀⠀⠀⠠⠁⢀⢀⠂⣵⡷⠤⢤⡤⣀⠀⠀
-⢸⣿⣟⡶⡹⣍⠦⡑⡈⠄⠀⠀⠀⠀⠀⠀⠀⠀⠤⣹⠣⡘⠠⠁⠌⠀⡁⢂⠌⡠⢉⣼⠇⠀⠀⠀⠀⠀⠂⢈⠀⡠⠘⣴⠏⠈⠀⠈⠺⢵⡆
-⢸⣿⣿⢶⡹⢆⠳⠄⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠠⠁⠄⡁⠌⠀⠐⠄⠊⠤⡁⢧⡾⠁⠀⠀⠀⠀⠀⠀⠄⠐⠠⢹⡏⠀⠀⡀⠄⡑⢠⡇
-⠸⣿⣿⣏⡳⢍⡚⢀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⢀⠂⣁⠂⠀⠀⠀⠌⡐⢉⠐⡌⢺⡇⠀⠀⠀⠀⠀⠀⠀⠀⠊⢰⡟⠀⠀⠀⠀⢂⠐⢯⡜
-⠀⢻⣿⣯⣗⡪⢐⠂⠄⡀⠀⠀⢀⠀⠄⡀⠠⠐⠠⡈⠄⠌⡐⠀⠐⠠⠈⠄⢂⠜⣹⠄⠀⠐⠀⠀⣀⠁⢂⠐⢠⡿⠀⠀⠀⠀⡀⠌⡈⠵⡇
-⠀⢸⣿⣿⣿⣷⡠⢌⡐⢀⠁⠄⠂⠌⡀⠀⠀⠄⠡⢐⠨⠐⠀⡐⠈⠄⠡⢈⠆⡹⢜⡀⠂⠀⠀⡐⠠⠈⢃⠀⣾⠀⠀⠀⠀⠀⠠⢀⠓⡸⡇
-⠀⠈⣿⣿⣿⣿⣿⣶⣌⣦⡘⡬⣑⢢⠐⡀⠂⠌⡠⠁⠂⠁⠄⠄⠁⠌⡐⢂⠬⡑⢆⠀⠠⢀⠂⠡⢀⠂⠌⣸⠧⠀⠀⠀⠠⢀⠁⢢⠘⣼⠁
-⠀⠀⢿⣿⣿⣿⣿⣿⣿⡼⣧⢧⣣⠜⣄⠣⡘⠤⡠⠀⠀⠘⡀⠀⠄⣀⢃⡘⢤⠛⠄⠘⠠⢄⠃⠤⠀⠄⡀⣿⠀⠀⠀⠠⠀⠀⡘⠄⣻⢻⠀
-⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣯⣿⣳⢿⣤⡓⡜⡐⠀⠀⡄⢃⠄⠠⡀⢄⠢⢜⢢⡉⡐⢈⠐⡈⡘⠤⢉⡐⢡⠏⡐⠠⠁⠂⡀⠡⢐⢨⢴⠏⠀
-⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣷⣯⣟⣿⣽⣳⣍⢶⣱⣌⠂⠌⢁⠰⣈⠲⣍⠢⡐⠁⠀⠀⠐⠀⢀⠂⢄⠣⡘⠠⢁⠂⡐⠠⢁⢢⢎⡿⠀⠀
-⠀⠀⠀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣾⣿⣶⣮⣶⣼⢳⣎⡱⢌⠢⡁⠄⣁⠀⠂⢌⠂⢆⠁⠂⠄⡂⠥⢑⡈⢲⡾⠃⠀⠀
-⠀⠀⠀⠀⠈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣾⣵⣯⣶⣝⡲⢌⡘⢡⠂⢍⠠⠌⡐⠠⠘⡄⢣⢼⡿⠁⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠉⠻⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣿⣽⣶⣭⢦⣉⠦⡘⢄⠢⣑⢣⡜⣱⠞⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣯⣷⣻⢯⣟⣿⣿⣷⣟⣾⣵⣮⣵⣺⣦⠿⠃⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⠿⠿⠿⠿⠿⠿⠿⠛⠋⠙⠛⠛⠛⠻⠿⠿⠿⣿⣿⣿⣿⡿⠟⠛⠉⠀⠀⠀⠀
-"""
-
 # TODO LIMIT QUESTIONS TO MAX OF 99 (5 categories * 3 difficulties * 99 questions each + 99 questions for final = 1584 possible questions)
 
 """ ======= GENERAL FUNCTIONS ======= """
@@ -442,7 +403,7 @@ def player_menu(name: str) -> None:
             time.sleep(2)
             return
         
-    def display_rules():
+    def print_rules():
         ...
 
     def print_leaderboard():
@@ -471,7 +432,7 @@ def player_menu(name: str) -> None:
         # Change uname
         # change pw
         ...
-    def display_winners():
+    def print_winners():
         print("== UPCAT Passers ==")
         with open("./pbs.dat", "r") as file:
             count = 1
@@ -498,9 +459,10 @@ def player_menu(name: str) -> None:
 
         options = {
             "1" : lambda : play_game(name, bests),
-            "2" : lambda : display_rules(),
+            "2" : lambda : print_rules(),
             "3" : lambda : print_leaderboard(),
-            "4" : lambda : account_settings()
+            "4" : lambda : account_settings(),
+            "5" : lambda : print_winners()
         }
       
         print("\n== PLAYER OPTIONS ==")
@@ -508,8 +470,8 @@ def player_menu(name: str) -> None:
         print("[2] How to play")
         print("[3] Leaderboard")
         print("[4] Account Settings")
+        print("[5] Hall of Passers" )
         print("[B] Quit")
-        display_winners()
         choice = input("What would you like to do? ")
         if choice in options.keys():
             options[choice]()
@@ -1035,15 +997,6 @@ if __name__ == "__main__":
 
 # Maybe add user password simple cypher (Subsitute)
 # Final question is mix of all questions 
-
-# Score is in % won
-# Populate leaderboard array when checking the leadboard and after game
-# after game populate a dictionary with scores paired with their name
-# check if score > any key, if it is pop last place, d[score] = "name", then sort, then rewrite leaderboard 
-
-
-# Add a hall of winners. if person has won put them here and remove them from leaderboard
-#  myDict = {key:val for key, val in myDict.items() if val != "value"} keep items not equal to value
 
 # If person has won unlock a new mode, endless mode with its own leaderboard, endless leaderboard lang
 # endless mode is just reapeated questions over and over until you lose or until you score 1584 T__T
