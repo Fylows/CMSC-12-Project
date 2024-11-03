@@ -80,7 +80,6 @@ def update_leaderboard(uname:str, score:float) -> None:
 
     # Adds a name when there are less than 5 ppl
     else:
-        print("pass")
         if len(myDict) < 5:
             myDict[uname] = score
         else:
@@ -89,7 +88,6 @@ def update_leaderboard(uname:str, score:float) -> None:
                     myDict.popitem()
                     myDict[uname] = score
                     break
-    print(myDict)
     time.sleep(2)
 
     # Sorts dictionary based on keys, key = calling lambda to retrieve its item
@@ -104,10 +102,14 @@ def update_leaderboard(uname:str, score:float) -> None:
 def user_login(myList:list) -> str:
     while 1:
         os.system("cls||clear")
-        usr = input("Enter your desired username: ").replace(" ", "ඞ").lower()
+        usr = input("Enter your desired username: ").lower()
 
-        if 3 > len(usr) or len(usr) > 10:
-            print("Username must be between 3 and 10 letters")
+        if 3 > len(usr):
+            print("Username is too short!")
+            time.sleep(1)
+            continue
+        elif len(usr) > 10:
+            print("Username is too long!")
             time.sleep(1)
             continue
         elif usr in myList:
@@ -115,7 +117,7 @@ def user_login(myList:list) -> str:
             time.sleep(1)
             os.system('cls||clear')
             continue
-        elif "ඞ" in usr:
+        elif usr.isalnum() == False:
             invalid()
             continue
         break
@@ -123,7 +125,7 @@ def user_login(myList:list) -> str:
     
     return usr,pw         
 
-def populate_players(myDict:dict, directory:str = "./players.dat", mode:str = "any") -> None:
+def populate_players(myDict:dict, directory:str = "./player_data/players.dat", mode:str = "any") -> None:
 
     Readfile = open(directory, "r")
 
@@ -148,7 +150,7 @@ def populate_questions(myDict:dict, directory: str) -> None:
         myDict[str(i)] = line[:-1].split(",")
         i += 1
 
-def rewrite_players(myDict:dict, directory:str = "./players.dat") -> None:
+def rewrite_players(myDict:dict, directory:str = "./player_data/players.dat") -> None:
     Writefile = open(directory, "w")
     for k, v in myDict.items():
         Writefile.write(f"{k},{v}\n")
@@ -211,14 +213,14 @@ def login_menu() -> None:
                     return (2,usr)
                 return (1,usr)
             
-            stop = input("Invalid login.\nEnter any key to try again or go back with [0] ")
-            if stop == "0":
+            stop = input("Invalid login.\nEnter any key to try again or go back with [B] ")
+            if stop == "B":
                 return stop
-            else: continue
 
     def register() -> None:
-        file_append = open("./players.dat", "a")
-        file_read = open("./players.dat", "r")
+        directory = "./player_data/players.dat"
+        file_append = open(directory, "a")
+        file_read = open(directory, "r")
         
         # puts usernames in a list 
         users = [line.split(',')[0].lower() for line in file_read.readlines()]
@@ -320,34 +322,14 @@ def player_menu(name: str) -> None:
                 break
             return d[ans]
         
-        def ask_question(k:str, v:list, life:int) -> bool:
-            while 1:
-                os.system("cls||clear")
-                display_question(k,v)
-                print(f"You have {life} mistake/s remaining")
-                answer = input("What is the answer? ")
-                answer = answer.upper()
-
-                if answer in ["A", "B", "C", "D"]:
-                    if answer == v[4]:
-                        print("Correct!")
-                        time.sleep(1.25)
-                        return True
-                    
-                    elif answer != v[4]:
-                        print("Inorrect.")  
-                        time.sleep(1.25)
-                        return False
-                else:
-                    invalid()
-                time.sleep(.25)
-        
+        highscore = 00.00
         difficulties = ["easy","med","hard", "final"]
-        highscore = best_progress[name]
+        if name in best_progress.keys():
+            highscore = best_progress[name]
         i = 0
         points = 0
         lives = 5
-        time_limit = ((i == 0) * 15) + ((i == 1) * 10) + ((i == 2) * 10) + ((i==3)*5)
+        time_limit = ((i == 0) * 1) + ((i == 1) * 10) + ((i == 2) * 10) + ((i==3)*5)
         
         while lives > 0 and i < 4:
             if i == 3:
@@ -362,44 +344,85 @@ def player_menu(name: str) -> None:
             print(f"You are playing {cat} on {difficulties[i]}, goodluck!")
             time.sleep(1)
 
+
+            # 5 questions
             for k,v in ques.items():
                 os.system("cls||clear")
-                start,elapsed = time.time(),0
+                start = time.time()
 
                 # Ask same question until they get it right'
                 while lives > 0:
+                    # Calculate elapsed everytime after code continues
                     elapsed = time.time() - start
+                    
+                    os.system("cls||clear")
+
+                    display_question(k,v)
+                    if lives == 1:
+                        print("Last life!")
+                    else:
+                        print(f"You have {lives} mistake/s remaining")
+                    
+                    # TODO LIFE LINES
+                    # 50/50
+                    # Double answer
+                    # Skip
+                    # Change question
+                    # extra time
+                    # extra life
+
+                    #  print(f"life lines: 50/50")
+
+                    answer = input("What is the answer? ").upper()
                     if elapsed > time_limit:
                         print("You took too long.")
                         lives -= 1
                         time.sleep(1.25)
                         break
-                    elif ask_question(k,v,lives):
-                        points += 1
-                        break
-                    else:
-                        lives -= 1
 
-            os.system("cls||clear")
-            print("Congratulations You just moved up a level!")
-            # Moves difficulty
+                    elif answer in ["A", "B", "C", "D"]:
+                        if answer == v[4]:
+                            print("Correct!")
+                            time.sleep(1.25)
+                            points += 1  
+                            break                      
+                        elif answer != v[4]:
+                            print("Inorrect.")  
+                            time.sleep(1.25)
+                            lives -= 1
+                            if i == 0:
+                                break
+                            else:
+                                continue
+                    else:
+                        invalid()
+
+                    time.sleep(.25)
+            # Next Level moves difficulty           
+            if i != 3:
+                os.system("cls||clear")
+                print("Congratulations You just moved up a level!")
+                time.sleep(1)
+                os.system("cls||clear")
             i+=1
-            os.system("cls||clear")
         
+        points = 20
         points = (points/20) * 100
         if lives == 0:
             print(f"Sorry you lost with {points}% progress")
             time.sleep(2)
 
         # If you complete the game or you have a new highscore
-        elif lives != 0 or points > highscore:
-            if points > highscore:
-                print(f"You have set a new personal best of {points}% completed!")
-            elif points == 100.00:
+        elif lives != 0 or points > highscore or name not in best_progress.keys():
+            if points == 100.00:
                 print("Congratulations you have earned a crown and a spot in UPLB!")
+            elif points > highscore:
+                print(f"You have set a new personal best of {points}% completed!")
             best_progress[name] = points
+        
+            # Updates leaderboard and personal best board
             update_leaderboard(uname,points)
-            rewrite_players(bests, "./pbs.dat")
+            rewrite_players(best_progress, "./player_data/pbs.dat")
             time.sleep(2)
             return
         
@@ -427,27 +450,29 @@ def player_menu(name: str) -> None:
 
  
     def account_settings():
-        # Winner?
-        # Personal Best
-        # Change uname
+        # Change uname -> change uname is pbs, leaderboards, players , total attempts
+        # need ang scores data
         # change pw
+        # Total attempts
         ...
+        
     def print_winners():
-        print("== UPCAT Passers ==")
-        with open("./pbs.dat", "r") as file:
+        os.system("cls||clear")
+        print("== UPCAT Passers ==\n")
+        with open("./player_data/pbs.dat", "r") as file:
             count = 1
             for line in file:
                 i = line[:-1].split(",")
                 if float(i[1]) == 100.00:
                     print(f"{count}. {i[0]}")
                     count + 1
-            input("Enter any key to go back. ")
+            input("\nEnter any key to go back. ")
 
     while 1:
         os.system("cls||clear")
 
         bests = {}
-        populate_players(bests, "pbs.dat", "pb")
+        populate_players(bests, "./player_data/pbs.dat", "pb")
 
         if name in bests:
             if int(bests[name]) == 100:
@@ -918,7 +943,7 @@ def admin_menu() -> None:
             confirm = input("Are you sure you want to reset the progress boards? [y/n] ")
             if confirm == "y":
                 f1 = open("./leaderboard.dat", "w")
-                f2 = open("./pbs.dat", "w")
+                f2 = open("./player_data/pbs.dat", "w")
                 f1.close()
                 f2.close()
                 os.system("cls||clear")
@@ -935,7 +960,7 @@ def admin_menu() -> None:
             os.system("cls||clear")
             confirm = input("Are you sure you want to clear all players? [y/n] ")
             if confirm == "y":
-                with open("./players.dat", "w") as file:
+                with open("./player_data/players.dat", "w") as file:
                     file.write(f"admin, {players['admin']}")
 
                 os.system("cls||clear")
@@ -952,7 +977,6 @@ def admin_menu() -> None:
         # populate players list wth players
         players = {}
         populate_players(players)
-        print(players)
 
         controls = {
             "1" : lambda : add_question(),
@@ -965,7 +989,7 @@ def admin_menu() -> None:
         print("\n== ADMIN CONTROLS ==")
         print("[1] Add a question")
         print("[2] View questions")
-        print("[3] Reset Leaderboard")
+        print("[3] Reset Leaderboards")
         print("[4] Change Password")
         print("[5] Remove a Player")
         print("[6] Clear Players")
