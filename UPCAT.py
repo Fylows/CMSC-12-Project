@@ -68,7 +68,7 @@ def prev_page(curr_page:int, curr_display:int, curr_max_display:int, max_page:in
 # Function for modifying leaderboard/s
 def update_leaderboard(uname:str, score:float) -> None:
     myDict = {}
-    Readfile = open("./leaderboard.dat", "r")
+    Readfile = open("./player_data/leaderboard.dat", "r")
     for line in Readfile:
         temp = line[:-1].split(",")
         myDict[temp[0]] = float(temp[1])
@@ -88,11 +88,10 @@ def update_leaderboard(uname:str, score:float) -> None:
                     myDict.popitem()
                     myDict[uname] = score
                     break
-    time.sleep(2)
 
     # Sorts dictionary based on keys, key = calling lambda to retrieve its item
     myDict = dict(sorted(myDict.items(), reverse=True, key=lambda item: item[1]))
-    Writefile = open("./leaderboard.dat", "w")
+    Writefile = open("./player_data/leaderboard.dat", "w")
     for k,v in myDict.items():
         Writefile.write(f"{k},{v}\n")
     
@@ -104,18 +103,18 @@ def user_login(myList:list) -> str:
         os.system("cls||clear")
         usr = input("Enter your desired username: ").lower()
 
-        if 3 > len(usr):
-            print("Username is too short!")
-            time.sleep(1)
-            continue
-        elif len(usr) > 10:
-            print("Username is too long!")
-            time.sleep(1)
-            continue
-        elif usr in myList:
+        if usr in myList:
             print("That user already exists! Please choose another.")
             time.sleep(1)
             os.system('cls||clear')
+            continue
+        elif 4 > len(usr):
+            print("Username must be atleast 3 characters!")
+            time.sleep(1)
+            continue
+        elif len(usr) > 11:
+            print("Username must no more than 10 characters!")
+            time.sleep(1)
             continue
         elif usr.isalnum() == False:
             invalid()
@@ -155,12 +154,11 @@ def rewrite_players(myDict:dict, directory:str = "./player_data/players.dat") ->
     for k, v in myDict.items():
         Writefile.write(f"{k},{v}\n")
     Writefile.close()
+
 # function that adds ALL questions in a dictionary, then returns that dictionary
 def endless() -> dict:
 
     # questions = {}
-
-
 
     cat = random.randrange(0,6)
     if cat == 5:
@@ -184,7 +182,6 @@ def endless() -> dict:
         }
     # return f"./{category[cat]}/{difficulty[diff]}"
 
-
 """ ======= MENUS ======= """
 def login_menu() -> None:
     size = os.get_terminal_size()
@@ -205,14 +202,14 @@ def login_menu() -> None:
         while 1:
             os.system('cls||clear')
             usr = input("Enter your Username: ").lower()
-            pw = input("Enter your password: ")
-           
+            if usr in players.keys():
+                pw = input("Enter your password: ")
+    
+                if (usr,pw) in players.items():
+                    if usr == "admin" and pw == players[usr]:
+                        return (2,usr)
+                    return (1,usr)
 
-            if (usr,pw) in players.items():
-                if usr == "admin" and pw == players[usr]:
-                    return (2,usr)
-                return (1,usr)
-            
             stop = input("Invalid login.\nEnter any key to try again or go back with [B] ")
             if stop == "B":
                 return stop
@@ -262,11 +259,7 @@ def player_menu(name: str) -> None:
     print(f"Hello {name.capitalize()}!")
     time.sleep(1)
 
-        
 
-# Easy retry until you get it, time limit of 10
-# Medium No Retries, Time limit of 10
-# Hard No Retries, Timel limit of 5
     def play_game(uname:str, best_progress:dict) -> None:
         def generate_question(directory: str) -> dict:
             file =  open(directory,"r")
@@ -275,13 +268,14 @@ def player_menu(name: str) -> None:
 
             questions = {}
 
+            # takes total number of question
             total = int(lines[0][2])
 
             indecies = list(range(1, total+1))
             random.shuffle(indecies)
 
 
-            for i in indecies[:5]:
+            for i in indecies[:6]:
                 temp = lines[i][:-1].split(",")
                 questions[temp[0]] = [temp[1], temp[2], temp[3], temp[4], temp[5]]
             return questions
@@ -329,8 +323,14 @@ def player_menu(name: str) -> None:
         i = 0
         points = 0
         lives = 5
-        time_limit = ((i == 0) * 1) + ((i == 1) * 10) + ((i == 2) * 10) + ((i==3)*5)
-        
+        time_limit = ((i == 0) * 15) + ((i == 1) * 10) + ((i == 2) * 10) + ((i==3)*5)
+
+        # Variable initialization for lifelines
+        skip = 1
+        change = 1
+        extra_life = 1
+        extra_time = 1
+
         while lives > 0 and i < 4:
             if i == 3:
                 cat = "final"
@@ -339,42 +339,61 @@ def player_menu(name: str) -> None:
 
             # ques is a dictionary containing 5 random questions
             ques = generate_question(f"./questions/{cat}/{difficulties[i]}.dat")
-
             os.system("cls||clear")
             print(f"You are playing {cat} on {difficulties[i]}, goodluck!")
-            time.sleep(1)
+            q = 5
 
+            time.sleep(1)
 
             # 5 questions
             for k,v in ques.items():
                 os.system("cls||clear")
                 start = time.time()
 
+                # ends current difficulty is q is 0
+                if q == 0:
+                    break
                 # Ask same question until they get it right'
                 while lives > 0:
-                    # Calculate elapsed everytime after code continues
-                    elapsed = time.time() - start
-                    
                     os.system("cls||clear")
 
                     display_question(k,v)
+                    print(q)
                     if lives == 1:
                         print("Last life!")
                     else:
                         print(f"You have {lives} mistake/s remaining")
                     
-                    # TODO LIFE LINES
-                    # 50/50
-                    # Double answer
-                    # Skip
-                    # Change question
-                    # extra time
-                    # extra life
-
-                    #  print(f"life lines: 50/50")
-
+                    print("Life lines:", (change == 1)*"[H] Change question", (skip == 1)*"[S] Skip question", (extra_life == 1)*"[L] Extra life", (extra_time == 1)*"[T] Extra time")
                     answer = input("What is the answer? ").upper()
-                    if elapsed > time_limit:
+                    elapsed = time.time() - start
+
+                    # Extra life lifeline
+                    if answer == "T" and extra_time == 1:
+                        points -= 0.25
+                        elapsed -= 20
+                        extra_time = 0
+                        print("+20 seconds!")
+                        time.sleep(.5)
+
+                    elif answer == "H" and change == 1:
+                        points -= 0.25
+                        q += 1
+                        change = 0
+                        break
+                    elif answer == "S" and skip == 1:
+                        points -= 0.25
+                        skip = 0
+                        break
+                    elif answer == "L" and extra_life == 1:
+                        points -= 0.25
+                        lives += 1
+                        extra_life = 0
+                        print("+1 extra life!")
+                        time.sleep(.5)
+
+
+                    elif elapsed > time_limit: 
                         print("You took too long.")
                         lives -= 1
                         time.sleep(1.25)
@@ -390,14 +409,16 @@ def player_menu(name: str) -> None:
                             print("Inorrect.")  
                             time.sleep(1.25)
                             lives -= 1
+                            points -= 0.25
                             if i == 0:
                                 break
                             else:
                                 continue
+
                     else:
                         invalid()
-
-                    time.sleep(.25)
+                q -= 1
+                time.sleep(.25)
             # Next Level moves difficulty           
             if i != 3:
                 os.system("cls||clear")
@@ -406,19 +427,22 @@ def player_menu(name: str) -> None:
                 os.system("cls||clear")
             i+=1
         
-        points = 20
         points = (points/20) * 100
-        if lives == 0:
-            print(f"Sorry you lost with {points}% progress")
-            time.sleep(2)
 
-        # If you complete the game or you have a new highscore
-        elif lives != 0 or points > highscore or name not in best_progress.keys():
+        # If you complete the game or you have a new highscore or if you have a name not in your current pb
+        if name not in best_progress.keys():
+            best_progress[name] = points
+            update_leaderboard(uname,points)
+            rewrite_players(best_progress, "./player_data/pbs.dat")
+            
+        elif lives != 0 or points > highscore:
             if points == 100.00:
                 print("Congratulations you have earned a crown and a spot in UPLB!")
             elif points > highscore:
                 print(f"You have set a new personal best of {points}% completed!")
-            best_progress[name] = points
+
+            if best_progress[name] != 100:
+                best_progress[name] = points
         
             # Updates leaderboard and personal best board
             update_leaderboard(uname,points)
@@ -426,12 +450,32 @@ def player_menu(name: str) -> None:
             time.sleep(2)
             return
         
-    def print_rules():
-        ...
+        print(f"You achieved {points}% progress in this run! well done!")
+        time.sleep(2)
+        
+    def print_rules() -> None:
+        rules_page1 = "Page 1\n"
+        rules_page2 = "Page 2\n"
+        shift = 1
+        while 1:
+            os.system("cls||clear")
+            print((shift == 1) * rules_page1 + (shift == 2) * rules_page2)
+            print(f"Page {shift} of 2")
+            print("[B] To Go back")
+            change = input("< prev next >\n")
+            if change == "<" and shift > 1:
+                shift -= 1
+            elif change == ">" and shift < 2:
+                shift += 1
+            elif change == "B":
+                return
+            else:
+                invalid()
+        print()
 
     def print_leaderboard():
         os.system("cls||clear")
-        file = open("./leaderboard.dat", "r")
+        file = open("./player_data/leaderboard.dat", "r")
         lines = file.readlines()
 
         print("TOP 5 PLAYERS' PROGRESS\n")
@@ -448,14 +492,13 @@ def player_menu(name: str) -> None:
 
         input("Enter any key to go back\n")
 
- 
     def account_settings():
         # Change uname -> change uname is pbs, leaderboards, players , total attempts
         # need ang scores data
         # change pw
         # Total attempts
         ...
-        
+
     def print_winners():
         os.system("cls||clear")
         print("== UPCAT Passers ==\n")
@@ -854,7 +897,6 @@ def admin_menu() -> None:
             populate_questions(questions, directory)
             count = questions["C"] + 1
             questions[str(count)] = [question,choices[0],choices[1],choices[2],choices[3],right]
-            print(questions)
             rewrite(questions, directory, "+")
 
             os.system("cls||clear")
@@ -942,7 +984,7 @@ def admin_menu() -> None:
             os.system("cls||clear")
             confirm = input("Are you sure you want to reset the progress boards? [y/n] ")
             if confirm == "y":
-                f1 = open("./leaderboard.dat", "w")
+                f1 = open("./player_data/leaderboard.dat", "w")
                 f2 = open("./player_data/pbs.dat", "w")
                 f1.close()
                 f2.close()
@@ -1012,9 +1054,8 @@ def main():
             player_menu(mode[1])
         elif mode[0] == 2: 
             admin_menu()
-    
+
 if __name__ == "__main__":
-    
     main()
     
 
@@ -1024,5 +1065,3 @@ if __name__ == "__main__":
 
 # If person has won unlock a new mode, endless mode with its own leaderboard, endless leaderboard lang
 # endless mode is just reapeated questions over and over until you lose or until you score 1584 T__T
-
-
