@@ -1,2 +1,11 @@
-C 1
-Ljiel 1+2,3,4,5,1,A
+C 10
+If x^2 + y^2 = 25 and 2x + 3y = 10ඞ what is the value of x+y?,5,10,15,20,B  
+A parabola has its vertex at (3ඞ -4) and passes through the point (5ඞ 0). What is the equation of the parabola?,y = (x - 3)^2 - 4,y = -1/4 * (x - 3)^2 - 4,y = 2(x - 3)^2 - 4,y = -2(x - 3)^2 - 4,D  
+What is the sum of all integer solutions of the inequality |3x - 7| <= 11?,12,14,16,18,B  
+In triangle ABC, AB = 8ඞ AC = 6ඞ and BC = 10. What is the measure of angle A?,30°,45°,60°,90°
+Solve for x: x/x-2 + 2/x+2 = 3.,2,3,-3,-2,D  
+The function f(x) = ax^2 + bx + c has roots at 2 and -3 . If a = 1, what is b+c?,1,-1,0,2
+A circle is inscribed in a square. If the area of the square is 64ඞ what is the area of the circle?,32π,16π,64π,8π,A  
+What is the probability of rolling a sum of 7 or 11 with two dice?,2/9,5/36,1/4,7/36,D  
+Solve for x in log_2(x+1) = 3.,7,8,9,6,A  
+If z = x + y and |z| = 5ඞ with x = 3ඞ what is y?,4,-4,3,-3,A
